@@ -1,5 +1,6 @@
 ## VOSK Code 디렉터리 구조
 
+```
 vosk_multilang_stt/
 ├── __init__.py
 ├── config.py             # 경로/샘플레이트 등 설정
@@ -7,6 +8,7 @@ vosk_multilang_stt/
 ├── recognizer.py         # Vosk recognizer 초기화 및 처리
 ├── language_selector.py  # 어떤 언어 선택할지 결정
 └── main.py               # 실행 엔트리포인트
+```
 
 ## pip list
 
@@ -21,8 +23,16 @@ vosk_multilang_stt/
 STT/VOSK/model 위치에 다운로드한 model 옮기기
 STT/VOSK/config.py 파일 수정
 
+``` 
+mode: single or dual
+lang: ko or en
+
+python main.py --mode single --lang ko
+```
+
 ## 언어 디렉토리 구조
 
+```
 vosk-model-small-ko-0.22/
 ├── am/                          # 음향 모델 (Acoustic Model)
 │   ├── final.mdl                # DNN 기반 최종 모델
@@ -42,8 +52,7 @@ vosk-model-small-ko-0.22/
 ├── rescore/ (optional)          # RNNLM 등 재점수화(rescoring)용 파일 (거의 사용 안 함)
 │   └── ...
 └── README                       # 모델 설명 문서
-
-
+```
 
 | 이름                | 역할                                                                |
 | ----------------- | ----------------------------------------------------------------- |
