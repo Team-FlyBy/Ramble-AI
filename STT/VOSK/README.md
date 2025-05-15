@@ -1,3 +1,26 @@
+## VOSK Code 디렉터리 구조
+
+vosk_multilang_stt/
+├── __init__.py
+├── config.py             # 경로/샘플레이트 등 설정
+├── audio_stream.py       # 마이크 입력 처리
+├── recognizer.py         # Vosk recognizer 초기화 및 처리
+├── language_selector.py  # 어떤 언어 선택할지 결정
+└── main.py               # 실행 엔트리포인트
+
+## pip list
+
+``` pip install vosk sounddevice ```
+
+## model install
+
+[https://alphacephei.com/vosk/models](모델 설치 주소)
+
+## How to use
+
+STT/VOSK/model 위치에 다운로드한 model 옮기기
+STT/VOSK/config.py 파일 수정
+
 ## 언어 디렉토리 구조
 
 vosk-model-small-ko-0.22/
@@ -30,15 +53,3 @@ vosk-model-small-ko-0.22/
 | `graph/HCLG.fst`  | **디코딩 그래프**. 발음 사전, 언어 모델, 트랜지션 등을 합성한 그래프                       |
 | `graph/words.txt` | **단어 ID → 단어 문자열** 매핑. 디코딩 결과를 사람이 이해할 수 있게 변환                   |
 | `phones/`         | **음소 정보** 디렉토리. 디버깅이나 세부 조정에 사용됨.                                 |
-
-## pip list
-
-``` pip install vosk sounddevice ```
-
-## model install
-
-[https://alphacephei.com/vosk/models](모델 설치 주소)
-
-## How to use
-
-model readme 참고
