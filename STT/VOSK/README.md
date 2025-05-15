@@ -1,29 +1,25 @@
-pip list
-
-pip install vosk
-pip install sounddevice  # 마이크로 입력을 받으려면 필요
-
 ## 언어 디렉토리 구조
 
 vosk-model-small-ko-0.22/
-├── am/
-│   ├── final.mdl            # acoustic model (DNN 등)
-│   ├── tree                 # HMM/phonetic decision tree
-│   └── ...                  # 추가 acoustic model 파일들
+├── am/                          # 음향 모델 (Acoustic Model)
+│   ├── final.mdl                # DNN 기반 최종 모델
+│   ├── tree                     # HMM/음소 결정 트리
+│   └── ...                      # 기타 음향 모델 관련 파일
 ├── conf/
-│   ├── mfcc.conf            # feature extraction config (MFCC)
-├── ivector/
-│   ├── final.dubm           # Diagonal UBM (GMM for speaker)
-│   ├── final.ie             # i-vector extractor
-│   └── ...                  # speaker adaptation용
-├── graph/
-│   ├── HCLG.fst             # decoding graph (HMM + LM + lexicon)
-│   └── words.txt            # word ID <-> word mapping
-├── phones/                 
-│   ├── ...                  # phoneme 관련 정보
-├── rescore/ (optional)      
-│   └── ...                  # rescoring에 필요한 RNNLM 등 (거의 안 씀)
-├── README
+│   └── mfcc.conf                # MFCC 특징 추출 설정 파일
+├── ivector/                     # 화자 적응용 i-vector 관련 파일
+│   ├── final.dubm              # Diagonal UBM (GMM 기반 화자 모델)
+│   ├── final.ie                # i-vector 추출기
+│   └── ...
+├── graph/                       # 디코딩 그래프 및 단어 매핑
+│   ├── HCLG.fst                # 디코딩 그래프 (HMM + 언어모델 + 발음사전)
+│   └── words.txt              # 단어 ID ↔ 단어 텍스트 매핑
+├── phones/                      # 음소 관련 정보
+│   └── ...
+├── rescore/ (optional)          # RNNLM 등 재점수화(rescoring)용 파일 (거의 사용 안 함)
+│   └── ...
+└── README                       # 모델 설명 문서
+
 
 
 | 이름                | 역할                                                                |
@@ -33,4 +29,16 @@ vosk-model-small-ko-0.22/
 | `ivector/`        | 화자 특징 추출 (i-vector), 화자 적응(Speaker Adaptation)에 사용              |
 | `graph/HCLG.fst`  | **디코딩 그래프**. 발음 사전, 언어 모델, 트랜지션 등을 합성한 그래프                       |
 | `graph/words.txt` | **단어 ID → 단어 문자열** 매핑. 디코딩 결과를 사람이 이해할 수 있게 변환                   |
-| `phones/`         | **음소 정보** 디렉토리. 디버깅이나 세부 조정에 사용                                 |
+| `phones/`         | **음소 정보** 디렉토리. 디버깅이나 세부 조정에 사용됨.                                 |
+
+## pip list
+
+``` pip install vosk sounddevice ```
+
+## model install
+
+[https://alphacephei.com/vosk/models](모델 설치 주소)
+
+## How to use
+
+model readme 참고
