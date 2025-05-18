@@ -174,4 +174,4 @@ cython_debug/
 .pypirc
 
 # vosk model path
-STT/VOSK/model/
+STT/VOSK/vosk_models/
