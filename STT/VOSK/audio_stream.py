@@ -1,6 +1,6 @@
 import queue
 import sounddevice as sd
-from config import SAMPLE_RATE
+from STT.VOSK.config import SAMPLE_RATE
 
 class AudioHandler:
     """오디오 스트림 처리를 위한 클래스"""
