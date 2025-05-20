@@ -10,13 +10,13 @@ vosk_multilang_stt/
 └── main.py               # 실행 엔트리포인트
 ```
 
-## pip list
+## Installation
 
 ``` pip install vosk sounddevice ```
 
 ## model install
 
-[https://alphacephei.com/vosk/models](모델 설치 주소)
+[모델 설치 주소](https://alphacephei.com/vosk/models)
 
 ## How to use
 
