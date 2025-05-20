@@ -1,6 +1,6 @@
 import json
 from vosk import Model, KaldiRecognizer
-from config import SAMPLE_RATE, KO_MODEL_PATH, EN_MODEL_PATH
+from STT.VOSK.config import SAMPLE_RATE, KO_MODEL_PATH, EN_MODEL_PATH
 
 class DualRecognizer:
     def __init__(self):

@@ -1,8 +1,8 @@
 import json
 import argparse
-from audio_stream import start_stream
-from recognizer import DualRecognizer, SingleRecognizer
-from language_selector import select_language
+from STT.VOSK.audio_stream import start_stream
+from STT.VOSK.recognizer import DualRecognizer, SingleRecognizer
+from STT.VOSK.language_selector import select_language
 
 # Parse command-line arguments
 parser = argparse.ArgumentParser(description="Speech recognition with single or dual model.")
