@@ -1,6 +1,6 @@
 import json
 import argparse
-from audio_stream import start_stream, q
+from audio_stream import start_stream #, AudioHandler
 from recognizer import DualRecognizer, SingleRecognizer
 from language_selector import select_language
 
@@ -21,17 +21,20 @@ else:
     recognizer = DualRecognizer()
 print("완료! 말해보세요. (Ctrl+C로 종료)")
 
-with start_stream():
-    try:
+stream, audio_handler = start_stream()
+
+try:
+    with stream:
         while True:
-            data = q.get()
+            data = audio_handler.get_audio_chunk()
             if args.mode == 'single':
                 result = recognizer.recognize(data)
                 if result:
                     result = json.loads(result)
                     text = result.get("text", "")
                     if text:
-                        print(f"🇰🇷 {text}")
+                        flag = "🇰🇷" if args.lang == "ko" else "🇺🇸"
+                        print(f"{flag} {text}")
             else:
                 ko_text, en_text = recognizer.recognize(data)
                 lang, text = select_language(ko_text, en_text)
@@ -39,5 +42,5 @@ with start_stream():
                     flag = "🇰🇷" if lang == "ko" else "🇺🇸"
                     print(f"{flag} {text}")
 
-    except KeyboardInterrupt:
-        print("\n종료합니다.")
+except KeyboardInterrupt:
+    print("\n종료합니다.")

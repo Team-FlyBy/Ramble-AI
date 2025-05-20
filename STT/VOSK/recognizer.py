@@ -24,11 +24,14 @@ class DualRecognizer:
 
 class SingleRecognizer:
     def __init__(self, lang):
-        if lang == 'ko':
+        if lang == 'en':
+            self.model = Model(EN_MODEL_PATH)
+        elif lang == 'ko':
             self.model = Model(KO_MODEL_PATH)
         else:
-            self.model = Model(EN_MODEL_PATH)
-            
+            raise ValueError(f"지원하지 않는 언어입니다: {lang}. 'en' 또는 'ko'만 지원합니다.")
+        
+        self.recognizer = KaldiRecognizer(self.model, SAMPLE_RATE)
         self.recognizer = KaldiRecognizer(self.model, SAMPLE_RATE)
 
     def recognize(self, data):
