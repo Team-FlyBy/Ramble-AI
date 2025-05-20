@@ -1,6 +1,6 @@
 import json
 import argparse
-from audio_stream import start_stream #, AudioHandler
+from audio_stream import start_stream
 from recognizer import DualRecognizer, SingleRecognizer
 from language_selector import select_language
 

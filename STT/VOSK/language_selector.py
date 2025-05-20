@@ -22,7 +22,7 @@ def select_language(ko_text, en_text):
         return "ko", ko_text
         
     # 두 텍스트 모두 내용이 있는 경우 길이 비교
-    # 여기서 가중치나 신뢰도 점수를 추가할 수도 있음
+    # 여기서 가중치나 신뢰도 점수를 추가할 수도 있음 (아직 미구현)
     if len(ko_text) > len(en_text):
         return "ko", ko_text
     else:
